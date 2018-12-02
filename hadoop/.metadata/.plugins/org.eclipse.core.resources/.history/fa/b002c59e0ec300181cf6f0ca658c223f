@@ -1,0 +1,87 @@
+package com.nowcoder;
+
+import java.util.Scanner;
+
+public class Number {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int n = sc.nextInt();
+		for(int i = 0;i < n;i++){
+			
+			help(sc.nextLine());
+		}
+	}
+
+	private static void help(String nextLine) {
+		// TODO Auto-generated method stub
+		String str = nextLine.toLowerCase();
+		StringBuilder sb = new StringBuilder(str);
+		int[] num = new int[10];
+		while(sb.toString().contains("z")){	//0
+			num[2]++;
+			sb.deleteCharAt(sb.indexOf("z"));
+			sb.deleteCharAt(sb.indexOf("e"));
+			sb.deleteCharAt(sb.indexOf("r"));
+			sb.deleteCharAt(sb.indexOf("o"));
+		}
+		while(sb.toString().contains("u")){	//4
+			num[6]++;
+			sb.deleteCharAt(sb.indexOf("f"));
+			sb.deleteCharAt(sb.indexOf("o"));
+			sb.deleteCharAt(sb.indexOf("u"));
+			sb.deleteCharAt(sb.indexOf("r"));
+		}
+		while(sb.toString().contains("x")){	//6
+			num[8]++;
+			sb.deleteCharAt(sb.indexOf("s"));
+			sb.deleteCharAt(sb.indexOf("i"));
+			sb.deleteCharAt(sb.indexOf("x"));
+		}
+		while(sb.toString().contains("s")){	//7
+			num[6]++;
+			sb.deleteCharAt(sb.indexOf("s"));
+			sb.deleteCharAt(sb.indexOf("e"));
+			sb.deleteCharAt(sb.indexOf("v"));
+			sb.deleteCharAt(sb.indexOf("e"));
+			sb.deleteCharAt(sb.indexOf("n"));
+		}
+		while(sb.toString().contains("g")){	//8
+			num[0]++;
+			sb.deleteCharAt(sb.indexOf("e"));
+			sb.deleteCharAt(sb.indexOf("i"));
+			sb.deleteCharAt(sb.indexOf("g"));
+			sb.deleteCharAt(sb.indexOf("h"));
+			sb.deleteCharAt(sb.indexOf("t"));
+		}
+		while(sb.toString().contains("v")){	//5
+			num[7]++;
+			sb.deleteCharAt(sb.indexOf("f"));
+			sb.deleteCharAt(sb.indexOf("i"));
+			sb.deleteCharAt(sb.indexOf("v"));
+			sb.deleteCharAt(sb.indexOf("e"));
+		}
+		while(sb.toString().contains("w")){	//2
+			num[4]++;
+			sb.deleteCharAt(sb.indexOf("t"));
+			sb.deleteCharAt(sb.indexOf("w"));
+			sb.deleteCharAt(sb.indexOf("o"));
+		}
+		while(sb.toString().contains("o")){	//1
+			num[3]++;
+			sb.deleteCharAt(sb.indexOf("o"));
+			sb.deleteCharAt(sb.indexOf("n"));
+			sb.deleteCharAt(sb.indexOf("e"));
+		}
+		while(sb.toString().contains("t")){	//3
+			num[5]++;
+			sb.deleteCharAt(sb.indexOf("t"));
+			sb.deleteCharAt(sb.indexOf("h"));
+			sb.deleteCharAt(sb.indexOf("r"));
+			sb.deleteCharAt(sb.indexOf("e"));
+			sb.deleteCharAt(sb.indexOf("e"));
+		}
+		
+		
+	}
+
+}

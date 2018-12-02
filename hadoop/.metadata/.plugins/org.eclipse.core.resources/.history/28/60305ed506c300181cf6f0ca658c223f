@@ -1,0 +1,19 @@
+package com.nowcoder;
+
+import java.util.Scanner;
+
+public class LineReverse {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		String str = sc.nextLine();
+		String[] split = str.split(" ");
+		String line = "";
+		for (int i = str.length()-2;i >= 0; i--) {
+			line += split[i]+" ";
+		}
+		line.substring(0, line.length()-1);
+		System.out.println(line);
+		sc.close();
+	}
+
+}

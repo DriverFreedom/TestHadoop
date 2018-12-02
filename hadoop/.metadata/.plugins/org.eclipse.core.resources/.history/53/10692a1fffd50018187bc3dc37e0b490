@@ -1,0 +1,38 @@
+package demo;
+
+import java.util.Stack;
+
+public class Test{
+	 public static void main(String[] args) {
+		 
+		 System.out.println(isValid("{[]}"));
+	 }
+	 public static boolean isValid(String s) {
+		 if(s.length()<=1){
+			 return false;
+		 }
+	     String[] str = new String[s.length()];  
+		 int index = 0;
+		 for(int i = 0; i < s.length();i++){
+			 if(s.charAt(i)=='(' || s.charAt(i)=='['||s.charAt(i)=='{'){
+				 str[++index] = s.charAt(i)+"";
+			 }else{
+				 if(s.charAt(i)==')' && str[index-1]=="("){
+					 str[index--] = null;
+				 }
+				 if(s.charAt(i)==']' && str[index-1]=="["){
+					 str[index--] = null;
+					 System.out.println(index);
+				 }
+				 if(s.charAt(i)=='}' && str[index-1]=="{"){
+					 str[index--] = null;
+				 }
+			 }
+		 }
+		 System.out.println(index);
+		 if(index==0){
+			 return true;
+		 }else 
+			 return false;
+	    }
+}

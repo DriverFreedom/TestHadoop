@@ -1,0 +1,21 @@
+package com.nowcoder;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class flower {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int low = sc.nextInt();
+		int height = sc.nextInt();
+		List<Integer> list = new ArrayList<>();
+		for(int i = low; i<=height;i++){
+			int a = i/100;
+			int b = i/10%10;
+			int c = i%10;
+			if()
+		}
+	}
+
+}

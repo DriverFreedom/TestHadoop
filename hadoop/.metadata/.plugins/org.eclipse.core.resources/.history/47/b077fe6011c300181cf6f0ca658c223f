@@ -1,0 +1,15 @@
+package com.nowcoder;
+
+import java.util.Scanner;
+
+public class flower {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int low = sc.nextInt();
+		int height = sc.nextInt();
+		for(int i = low; i<=height;i++){
+			
+		}
+	}
+
+}

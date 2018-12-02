@@ -1,0 +1,21 @@
+package demo;
+
+import java.util.Stack;
+
+public class Test{
+	
+	public class ListNode {
+		    int val;
+		     ListNode next;
+		     ListNode(int x) { val = x; }
+		 }
+	 public static void main(String[] args) {
+		 
+		 System.out.println(isValid("){"));
+	 }
+	 
+	 public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
+	        
+	   }
+	 
+}

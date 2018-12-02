@@ -1,0 +1,27 @@
+package demo;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class Demo_1 {
+
+	static Map<Integer, Integer> map = new HashMap();
+	public static void main(String[] args) {
+		System.out.println(getNum(10));
+	}
+	public static int getNum(int n){
+		if(n <= 0)
+			return 0;
+		if(n <= 2)
+			return n;
+		int f1 = 0;
+		int f2 = 1;
+		int sum = 0;
+		for(int i = 2;i <= n;i++){
+			sum = f1+f2;
+			f1 = f2;
+			f2 = sum;
+		}
+		return sum;
+	}
+}

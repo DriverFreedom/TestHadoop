@@ -1,0 +1,67 @@
+package day05.firstMR.local;
+
+import java.io.File;
+
+import org.apache.commons.io.FileUtils;
+import org.apache.hadoop.conf.Configuration;
+import org.apache.hadoop.fs.FileSystem;
+import org.apache.hadoop.fs.Path;
+import org.apache.hadoop.io.IntWritable;
+import org.apache.hadoop.io.Text;
+import org.apache.hadoop.mapreduce.Job;
+import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
+import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
+
+import day05.firstMR.MapTask;
+import day05.firstMR.ReduceTask;
+
+
+
+/**
+ * 本地模式
+ * 小数据测试，测试完成之后才改成集群模式进行提交
+ * @author root
+ *
+ */
+public class Driver {
+	public static void main(String[] args) throws Exception {
+	
+		
+		//System.setProperty("HADOOP_USER_NAME", "hasee");
+		Configuration conf = new Configuration();
+		//System.setProperty("HADOOP_USER_NAME", "root");
+		
+		/**
+		 * fs.defaultFs的默认值file:///	本地文件系统
+		 * mapreduce.framework.name默认值是local
+		 */
+		Job job = Job.getInstance(conf);
+		//设置map和Reduce以及提交的jar
+		job.setMapperClass(day05.firstMR.MapTask.class);
+		job.setReducerClass(day05.firstMR.ReduceTask.class);
+		job.setJarByClass(day05.firstMR.local.Driver.class);
+		//job.setJar("C:\\Users\\hasee\\Desktop\\wc.jar");
+		//设置输入输出类型
+		job.setMapOutputKeyClass(Text.class);
+		job.setMapOutputValueClass(IntWritable.class);
+		job.setOutputKeyClass(Text.class);
+		job.setOutputValueClass(IntWritable.class);
+		//判断文件是否存在
+		File file = new File("d:/data/out/wc");
+		if(file.exists()){
+			FileUtils.deleteDirectory(file);
+		}
+		
+		//设置输入和输出目录
+		FileInputFormat.setInputPaths(job, new Path("D:\\data\\word.txt"));
+		FileOutputFormat.setOutputPath(job, new Path("D:/data/out/wc"));
+		
+		job.setNumReduceTasks(1);
+		
+		//提交任务
+		boolean b = job.waitForCompletion(true);
+		
+		System.out.println(b?0:1);
+		
+	}
+}

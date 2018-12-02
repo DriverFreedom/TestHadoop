@@ -1,0 +1,25 @@
+package demo;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class Demo_1 {
+
+	static Map<Integer, Integer> map = new HashMap();
+	public static void main(String[] args) {
+		System.out.println(getNum(10));
+	}
+	public static int getNum(int i){
+		if(i <= 0)
+			return i;
+		if(i <= 2)
+			return i;
+		else{
+			if (map.containsKey(i))
+				return map.get(i);
+			else{
+				map.put(i, getNum(i-1)+getNum(i-2));
+			}
+		}
+	}
+}

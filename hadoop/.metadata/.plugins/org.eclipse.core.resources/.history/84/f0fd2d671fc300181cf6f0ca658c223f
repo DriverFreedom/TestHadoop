@@ -1,0 +1,36 @@
+package com.nowcoder;
+
+import java.util.Scanner;
+
+public class kangarooCrossingTheRiver {
+	public static void main(String[] args) {
+		System.out.println(jumpNumber());
+	}
+
+	private static int jumpNumber() {
+		// TODO Auto-generated method stub
+		Scanner sc = new Scanner(System.in);
+		int riverLong = sc.nextInt();
+		int jumpN = 0;
+		int jumpL = 0;
+		int all = 0;
+		int a[] = new int[riverLong];
+		for(int i = 0;i<riverLong;i++){
+			a[i] = sc.nextInt();
+		}
+		for(;riverLong>0;){
+			all += jumpL;
+			jumpL = a[all];
+			if(jumpL != 0){
+				riverLong = riverLong - jumpL;
+				jumpN++;
+				System.out.println(jumpL+" "+jumpN+" "riverLong);
+			}else{
+				return -1;
+			}
+			
+		}
+		return jumpN;
+	}
+
+}
